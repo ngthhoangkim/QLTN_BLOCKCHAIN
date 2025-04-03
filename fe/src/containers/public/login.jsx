@@ -4,7 +4,6 @@ import * as actions from "../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { InputForm, Button } from "../../components";
 import Swal from 'sweetalert2'
-import { motion } from "framer-motion";
 import { bgAuth } from "../../assets/img";
 
 
@@ -36,7 +35,6 @@ const Login = () => {
     }, [location.state?.flag]);
 
     useEffect(() => {
-        console.log("isLoggedIn:", isLoggedIn, "role:", role);
         if (isLoggedIn) {
             if (role === 'user') {
                 navigate('/');
@@ -49,19 +47,16 @@ const Login = () => {
     useEffect(() => {
         msg && Swal.fire('Thông báo!', msg, 'warning')
     }, [msg, update])
-    useEffect(() => {
-        console.log("Component re-rendered. isRegister:", isRegister);
-    }, [isRegister]);
+
     //xử lý sumit
     const handleSumit = async () => {
-        console.log("handleSumit is running...");
+      
         let finalPayload = isRegister
             ? payload
             : {
                 phone: payload.phone,
                 password: payload.password,
             };
-        console.log("Final Payload:", finalPayload);
         const formattedPayload = {
             ...payload,
             birthday: new Date(payload.birthday).toLocaleDateString("en-GB"),

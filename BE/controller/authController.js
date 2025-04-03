@@ -27,4 +27,13 @@ export const login = async (req, res) => {
     res.status(500).json({ ["Fail at auth:"]: error.message });
   }
 };
-
+//get one 
+export const getOneUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const response = await authServices.getOneUserService(id)
+    return res.status(200).json(response)
+  } catch (error) {
+    res.status(500).json({ ["Fail at get one user:"]: error.message });
+  }
+};

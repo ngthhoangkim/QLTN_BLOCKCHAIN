@@ -85,3 +85,43 @@ export const loginService = async ({ phone, password }) => {
     throw new Error(error.message);
   }
 };
+
+//get one user
+export const getOneUserService = (id) =>
+  new Promise(async (resolve, reject) => {
+    try {
+      const response = await db.User.findOne({
+        where: { id },
+        attributes: [
+          "id",
+          "password",
+          "name",
+          "phone",
+          "birthday",
+          "email",
+          "address",
+        ],
+        include: [
+          {
+            model: db.Role,
+            as: "role",
+            attributes: ["name"],
+          },
+        ],
+      });
+      if (response) {
+        resolve({
+          err: 0,
+          msg: "Lấy thông tin user thành công!",
+          data: response,
+        });
+      } else {
+        resolve({
+          err: 1,
+          msg: "User không tồn tại!",
+        });
+      }
+    } catch (error) {
+      reject(error);
+    }
+  });

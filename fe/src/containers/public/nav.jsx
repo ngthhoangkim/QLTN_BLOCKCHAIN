@@ -11,7 +11,7 @@ import { logo } from "../../assets/img";
 const Nav = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoggedIn, id } = useSelector((state) => state.auth);
+  const { isLoggedIn } = useSelector((state) => state.auth);
 
   const goLogin = useCallback((flag) => {
     navigate(`/${path.LOGIN}`, { state: { flag } });
@@ -38,12 +38,12 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link className="text-[#d9dcd6] text-2xl font-bold  hover:text-[#2f6690]" to={"/"}>
+          <Link className="text-[#d9dcd6] text-2xl font-bold  hover:text-[#2f6690]" to={`/${path.RENT_HOUSE}`}>
             Thuê nhà
           </Link>
         </li>
         <li>
-          <Link className="text-[#d9dcd6] text-2xl font-bold  hover:text-[#2f6690]" to={"/"}>
+          <Link className="text-[#d9dcd6] text-2xl font-bold  hover:text-[#2f6690]" to={`/${path.POST_HOUSE}`}>
             Đăng tin cho thuê
           </Link>
         </li>

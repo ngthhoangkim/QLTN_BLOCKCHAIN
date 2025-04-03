@@ -10,7 +10,7 @@ const Home = () => {
         <Nav />
       </div>
       {/* page */}
-      <div>
+      <div >
         <Outlet />
       </div>
     </div>

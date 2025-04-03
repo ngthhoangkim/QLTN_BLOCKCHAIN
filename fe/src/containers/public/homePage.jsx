@@ -7,9 +7,7 @@ import Swal from "sweetalert2";
 import { bgHome } from "../../assets/img";
 
 const HomePage = () => {
-  const { isLoggedIn, id } = useSelector((state) => state.auth);
-
-
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -31,14 +29,6 @@ const HomePage = () => {
           <h1 className="text-[#ffb703] font-semibold text-5xl text-center" style={{ lineHeight: "1.5", letterSpacing: "0.05em" }}>
             Thuê nhà dễ dàng – Quản lý thông minh!
           </h1>
-          <motion.button
-            className="relative overflow-hidden border-2 border-[#ffb703] text-[#ffb703] py-3 px-10 rounded-lg font-semibold text-lg transition-all duration-300 group"
-          >
-            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
-              Hãy khám phá ngay
-            </span>
-            <span className="absolute inset-0 bg-[#ffb703] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
-          </motion.button>
         </div>
       </div>
     </div>

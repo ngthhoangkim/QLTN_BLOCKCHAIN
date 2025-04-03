@@ -1,6 +1,6 @@
 import React from "react";
 
-export const InputForm = ({
+const InputForm = ({
     type = "text",
     value,
     onChange,
